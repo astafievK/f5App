@@ -1,0 +1,462 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #222428;
+}
+body header {
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 30px 0 30px;
+  width: 75%;
+  height: 90px;
+  border-radius: 15px;
+  margin-top: 20px;
+  background-color: #293644;
+  box-shadow: 0 0 56px -13px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(100px);
+}
+body header .logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+body header .logo-wrapper .logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: all 0.2s;
+}
+body header .logo-wrapper .logo svg {
+  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s;
+}
+body header .logo-wrapper .logo svg path {
+  fill: #ffffff;
+  transition: all 0.2s;
+}
+body header .logo:hover {
+  transform: scale(1.175);
+  transition: all 0.2s;
+}
+body header .logo:hover svg {
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.35));
+  transition: all 0.2s;
+}
+body header .logo:active {
+  transform: scale(1.07);
+  transition: all 0.1s;
+}
+body header .search-wrapper {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body header .search-wrapper input {
+  outline: none;
+  width: 90%;
+  height: 60px;
+  border: 2px solid rgba(34, 36, 40, 0.5);
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-size: 25px;
+  padding: 0 70px 0 25px;
+  transition: all 0.2s;
+}
+body header .search-wrapper input:hover {
+  border-color: rgb(34, 36, 40);
+  transition: all 0.2s;
+}
+body header .search-wrapper input:focus {
+  background-color: rgb(34, 36, 40);
+  color: #ffffff;
+  border-color: rgb(34, 36, 40);
+  box-shadow: 0 0 56px -13px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+body header .search-wrapper input:focus::placeholder {
+  color: #ffffff;
+  transition: all 0.2s;
+}
+body header .menu-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+body header .menu-wrapper .menu {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+body header .menu-wrapper .menu .menu__item {
+  list-style-type: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+body header .menu-wrapper .menu .menu__item div svg {
+  transition: all 0.2s;
+}
+body header .menu-wrapper .menu .menu__item div svg path {
+  fill: #ffffff;
+  transition: all 0.2s;
+}
+body header .menu-wrapper .menu .menu__item div svg:hover {
+  transform: scale(1.4);
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.85));
+  transition: all 0.2s;
+}
+body header .menu-wrapper .menu .menu__item div svg:active {
+  transform: scale(1.2);
+  transition: all 0.1s;
+}
+body header .menu-wrapper .menu .menu__item:nth-child(2) div {
+  margin-left: 19px;
+  margin-right: 19px;
+}
+body .main {
+  padding: 150px 12% 0 12% !important;
+}
+body .main .row {
+  justify-content: space-evenly;
+}
+body .main .row .card-wrapper {
+  margin-bottom: 40px;
+  width: 450px;
+}
+body .main .row .card-wrapper .card {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: relative;
+  min-height: 350px;
+  border-radius: 15px;
+  background-color: gray;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+body .main .row .card-wrapper .card .spoiler {
+  position: absolute;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.75);
+  transform: translateY(100%);
+  width: 100%;
+  height: 100%;
+  animation-name: slide-down;
+  animation-fill-mode: forwards;
+  animation-duration: 0.55s;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #FFFFFF;
+  padding: 30px 20px 30px 20px;
+  user-select: none;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content .price {
+  position: absolute;
+  right: 10%;
+  font-size: 40px;
+  font-weight: 700;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content .title {
+  position: absolute;
+  bottom: 30%;
+  font-size: 30px;
+  font-weight: 600;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content .description {
+  position: absolute;
+  font-size: 16px;
+  font-weight: 500;
+  bottom: 10%;
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-down {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+body .main .row .card-wrapper .card:hover {
+  transform: scale(1.04);
+  transition: all 0.2s;
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.1);
+}
+body .main .row .card-wrapper .card:hover .spoiler {
+  animation-name: slide-up;
+  animation-fill-mode: forwards;
+}
+body .main .row .card-wrapper .card:active {
+  transform: scale(1.015);
+  transition: all 0.1s;
+}
+body .modal {
+  backdrop-filter: blur(5px);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99998;
+  animation-duration: 0.35s;
+  animation-name: appear-modal;
+}
+body .modal .login-wrapper,
+body .modal .registration-wrapper {
+  display: flex;
+  position: relative;
+  max-width: 400px;
+  padding: 40px 50px 40px 50px;
+  background-color: #293644;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  z-index: 99999;
+}
+body .modal .login-wrapper .title,
+body .modal .registration-wrapper .title {
+  font-weight: 900;
+  font-size: 35px;
+  text-align: center;
+}
+body .modal .login-wrapper .subtitle,
+body .modal .registration-wrapper .subtitle {
+  margin-top: 17px;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+}
+body .modal .login-wrapper .title,
+body .modal .login-wrapper .subtitle,
+body .modal .registration-wrapper .title,
+body .modal .registration-wrapper .subtitle {
+  color: #FFFFFF;
+}
+body .modal .login-wrapper form,
+body .modal .registration-wrapper form {
+  position: relative;
+  margin-top: 30px;
+  width: 355px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body .modal .login-wrapper form .form__item,
+body .modal .registration-wrapper form .form__item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  position: relative;
+  border-bottom: 2px solid #FFFFFF;
+  margin-bottom: 32px;
+  width: 100%;
+  transition: all 0.2s ease-out;
+}
+body .modal .login-wrapper form .form__item img,
+body .modal .registration-wrapper form .form__item img {
+  max-width: 35px;
+  margin-right: 10px;
+}
+body .modal .login-wrapper form .form__item input,
+body .modal .registration-wrapper form .form__item input {
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 18px;
+  width: 100%;
+}
+body .modal .login-wrapper form .form__item input::placeholder,
+body .modal .registration-wrapper form .form__item input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  padding-left: 3px;
+  user-select: none;
+}
+body .modal .login-wrapper form .login__button-wrapper,
+body .modal .login-wrapper form .registration__button-wrapper,
+body .modal .registration-wrapper form .login__button-wrapper,
+body .modal .registration-wrapper form .registration__button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 19px;
+}
+body .modal .login-wrapper form .login__button-wrapper .login__button,
+body .modal .login-wrapper form .login__button-wrapper .registration__button__button,
+body .modal .login-wrapper form .registration__button-wrapper .login__button,
+body .modal .login-wrapper form .registration__button-wrapper .registration__button__button,
+body .modal .registration-wrapper form .login__button-wrapper .login__button,
+body .modal .registration-wrapper form .login__button-wrapper .registration__button__button,
+body .modal .registration-wrapper form .registration__button-wrapper .login__button,
+body .modal .registration-wrapper form .registration__button-wrapper .registration__button__button {
+  width: 181px;
+  height: 47px;
+  background-color: #4ACCD4;
+  border-radius: 16px 5px 5px 5px;
+  border: 4px solid transparent;
+  font-weight: 700;
+  font-size: 18px;
+  color: #222428;
+  transition: all 0.2s;
+}
+body .modal .login-wrapper form .login__button-wrapper .login__button:hover,
+body .modal .login-wrapper form .login__button-wrapper .registration__button:hover,
+body .modal .login-wrapper form .registration__button-wrapper .login__button:hover,
+body .modal .login-wrapper form .registration__button-wrapper .registration__button:hover,
+body .modal .registration-wrapper form .login__button-wrapper .login__button:hover,
+body .modal .registration-wrapper form .login__button-wrapper .registration__button:hover,
+body .modal .registration-wrapper form .registration__button-wrapper .login__button:hover,
+body .modal .registration-wrapper form .registration__button-wrapper .registration__button:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  border-color: #4ACCD4;
+  transition: all 0.2s;
+}
+body .modal .login-wrapper form .login__button-wrapper .login__button:active,
+body .modal .login-wrapper form .login__button-wrapper .registration__button:active,
+body .modal .login-wrapper form .registration__button-wrapper .login__button:active,
+body .modal .login-wrapper form .registration__button-wrapper .registration__button:active,
+body .modal .registration-wrapper form .login__button-wrapper .login__button:active,
+body .modal .registration-wrapper form .login__button-wrapper .registration__button:active,
+body .modal .registration-wrapper form .registration__button-wrapper .login__button:active,
+body .modal .registration-wrapper form .registration__button-wrapper .registration__button:active {
+  transform: scale(0.9);
+  transition: all 0.2s;
+}
+body .modal .login-wrapper form .form__item:last-child,
+body .modal .registration-wrapper form .form__item:last-child {
+  margin-bottom: 0;
+}
+body .modal .login-wrapper form .form__item:focus-within,
+body .modal .registration-wrapper form .form__item:focus-within {
+  border-bottom: 2px solid #4ACCD4;
+  transition: all 0.2s ease-out;
+}
+body .modal .modal-overlay {
+  position: fixed;
+  z-index: 99998;
+  background: rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@keyframes appear-modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+body #goTop {
+  display: none;
+  position: fixed;
+  bottom: 15%;
+  right: 5%;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background: #293644;
+  z-index: 9999;
+  transition: all 0.2s;
+}
+body #goTop svg {
+  width: 100%;
+  height: 100%;
+}
+body #goTop svg path {
+  transition: all 0.2s;
+}
+body #goTop:hover {
+  background: #ffffff;
+  transform: scale(1.15);
+  transition: all 0.2s;
+}
+body #goTop:hover svg path {
+  fill: #293644;
+  transition: all 0.2s;
+}
+body #goTop:active {
+  transform: scale(1);
+  transition: all 0.3s;
+}
+body footer {
+  height: 100px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  bottom: 0;
+  margin-top: 30px;
+  background-color: #293644;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+body footer .logo {
+  display: flex;
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  align-items: center;
+  user-select: none;
+  transition: all 0.3s;
+}
+body footer .logo .logo__icon,
+body footer .logo .logo__label {
+  display: inline-block;
+}
+body footer .logo .logo__icon {
+  margin-right: 15px;
+  width: 35px;
+}
+body footer .logo .logo__icon path {
+  fill: #ffffff;
+  transition: all 0.3s;
+}
+body footer .logo:hover {
+  transition: all 0.3s;
+  color: #4ec6d5;
+}
+body footer .logo:hover .logo__icon path {
+  fill: #4ACCD4;
+  transition: all 0.3s;
+}
+
+/*# sourceMappingURL=style.css.map */
