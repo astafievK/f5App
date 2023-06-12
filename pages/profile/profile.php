@@ -1,15 +1,21 @@
 <?php
-$conn = new mysqli("localhost", "root", "root", "f5App");
 
-$userId = 1;
+session_start();
+if(!isset($_SESSION['id'])) {
+    header("Location: ../authorization/authorization.php");
+    exit();
+}
 
-$queryOrders = "SELECT * FROM OrdersProducts WHERE idUser = $userId";
+$conn = new mysqli("localhost", "root", "root", "F5App");
+$userId = $_SESSION['id'];
+
+$queryOrders = "SELECT * FROM UserOrderProduct WHERE idUser = $userId";
 $resultOrders = mysqli_query($conn, $queryOrders);
 
-$queryOrdersCount = "SELECT ordersCount FROM users WHERE idUser = $userId";
+$queryOrdersCount = "SELECT ordersCount FROM user WHERE idUser = $userId";
 $resultOrdersCount = mysqli_query($conn, $queryOrdersCount);
 
-$queryUserInfo = "SELECT * FROM users WHERE idUser = $userId";
+$queryUserInfo = "SELECT * FROM user WHERE idUser = $userId";
 $resultUserInfo = mysqli_query($conn, $queryUserInfo);
 
 function printOrders($resultOrders){
@@ -32,15 +38,24 @@ function printOrdersCount($resultOrdersCount){
 function printUserInfo($resultUserInfo){
     while ($row = mysqli_fetch_array($resultUserInfo)) {
         echo
-            '
-        <span class="login-title row">Логин: <label class="login">'.$row['login'].'</label></span>
-        <span class="name-title row">Имя: <label class="name">'.$row['name'].'</label></span>
-        <span class="surname-title row">Фамилия: <label class="surname">'.$row['surname'].'</label></span>
-        <span class="patronymic-title row">Отчество: <label class="patronymic">'.$row['patronymic'].'</label></span>
-        <span class="email-title row">Эл. почта: <label class="email">'.$row['email'].'</label></span>
-        <span class="phone-title row">Номер телефона: <label class="phone">'.$row['phone'].'</label></span>
+        '
+        <div class="info col-7">
+            <span class="login-title row">Логин: <label class="login">'.$row['login'].'</label></span>
+            <span class="name-title row">ФИО: <label class="name">'.$row['surname'].' '.$row['name'].' '.$row['patronymic'].'</label></span>
+            <span class="email-title row">Эл. почта: <label class="email">'.$row['email'].'</label></span>
+            <span class="phone-title row">Контактный номер: <label class="phone">'.$row['phone'].'</label></span>
+        </div>
+        <div class="image col-5">
+            <img src="../../assets/images/profile/'.$row['picture'].'" alt="Изображение профиля">
+        </div>
         ';
     }
+}
+
+if (isset($_POST['leave'])) {
+    session_destroy();
+    header('Location: ../authorization/authorization.php');
+    exit();
 }
 ?>
 
@@ -58,19 +73,20 @@ function printUserInfo($resultUserInfo){
     <script src="../../assets/libraries/jquery-3.7.0.min.js"></script>
 </head>
 <body>
+<header>
+    <div class="container">
+        <a href="../catalog/catalog.php"><button class="btn-back" id="back">Каталог</button></a>
+        <form action="leave.php" method="POST">
+            <button class="leave-button" name="leave">Выйти</button>
+        </form>
+    </div>
+</header>
 <div class="container">
-    <a href="../catalog/catalog.php"><button class="btn-back" id="back">Каталог</button></a>
     <span class="profile-title">Профиль</span>
 
     <div class="row">
         <div class="info-wrap row">
-            <div class="info col-7">
-                <?php printUserInfo($resultUserInfo); ?>
-            </div>
-
-            <div class="image col-5">
-                <img src="#" alt="Изображение профиля">
-            </div>
+            <?php printUserInfo($resultUserInfo); ?>
         </div>
     </div>
 

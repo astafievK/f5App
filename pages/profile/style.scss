@@ -17,31 +17,63 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
 
-  a{
-    .btn-back{
-      position: relative;
-      width: 181px;
-      height: 47px;
-      padding-left: 50px;
-      background-color: #4ACCD4;
-      border-radius: 100% 15px 15px 100%;
-      border: 4px solid transparent;
-      font-weight: 700;
-      font-size: 18px;
-      color: #222428;
-      transition: all 0.2s;
+  header{
+    width: 100%;
+    height: 47px;
+
+    a{
+      float: left;
+
+      .btn-back{
+        width: 181px;
+        height: 47px;
+        background-color: #4ACCD4;
+        border-radius: 15px;
+        border: 4px solid transparent;
+        font-weight: 700;
+        font-size: 18px;
+        color: #222428;
+        transition: all 0.2s;
+      }
+
+      .btn-back:hover{
+        color: #FFFFFF;
+        background-color: transparent;
+        border-color: #4ACCD4;
+        transition: all 0.2s;
+      }
+
+      .btn-back:active{
+        transform: scale(0.9);
+        transition: all 0.2s;
+      }
     }
 
-    .btn-back:hover{
-      color: #FFFFFF;
-      background-color: transparent;
-      border-color: #4ACCD4;
-      transition: all 0.2s;
-    }
+    form{
+      float: right;
 
-    .btn-back:active{
-      transform: scale(0.9);
-      transition: all 0.2s;
+      .leave-button{
+        width: 181px;
+        height: 47px;
+        background-color: transparent;
+        border-radius: 15px;
+        border: 4px solid red;
+        font-weight: 700;
+        font-size: 18px;
+        color: #ffffff;
+        transition: all 0.2s;
+      }
+
+      .leave-button:hover{
+        color: #000000;
+        background-color: red;
+        transition: all 0.2s;
+      }
+
+      .leave-button:active{
+        transform: scale(0.9);
+        transition: all 0.2s;
+      }
     }
   }
 
@@ -81,7 +113,13 @@ body {
     .image{
       border: 2px solid gray;
       border-radius: 15px;
-      aspect-ratio: 1/1;
+      padding: 0;
+
+      img{
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 

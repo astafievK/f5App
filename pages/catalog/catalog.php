@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['id'])) { // если сессия не существует
+    header("Location: ../authorization/authorization.php"); // перенаправляем на страницу авторизации
+    exit(); // принудительно завершаем скрипт
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -26,29 +36,27 @@
     <div class="menu-wrapper">
         <ul class="menu">
             <li class="menu__item">
-                <a href="../../pages/favorite/favorite.html">
-                    <div class="menu__item-favorite" id="favorite" data-tooltip="123">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48">
-                            <path d="m480-121-41-37q-105.768-97.121-174.884-167.561Q195-396 154-451.5T96.5-552Q80-597 80-643q0-90.155 60.5-150.577Q201-854 290-854q57 0 105.5 27t84.5 78q42-54 89-79.5T670-854q89 0 149.5 60.423Q880-733.155 880-643q0 46-16.5 91T806-451.5Q765-396 695.884-325.561 626.768-255.121 521-158l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712-426 750.5-476t54-89.135q15.5-39.136 15.5-77.72Q820-709 778-751.5T670.225-794q-51.524 0-95.375 31.5Q531-731 504-674h-49q-26-56-69.85-88-43.851-32-95.375-32Q224-794 182-751.5t-42 108.816Q140-604 155.5-564.5t54 90Q248-424 314-358t166 158Zm0-297Z"/>
-                        </svg>
-                    </div>
-                </a>
-            </li>
-            <li class="menu__item">
-                <div class="menu__item-profile" id="profile">
+                <button class="menu__item-favorite" id="favorite" data-tooltip="123">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48">
-                        <path d="M222-255q63-44 125-67.5T480-346q71 0 133.5 23.5T739-255q44-54 62.5-109T820-480q0-145-97.5-242.5T480-820q-145 0-242.5 97.5T140-480q0 61 19 116t63 109Zm257.814-195Q422-450 382.5-489.686q-39.5-39.686-39.5-97.5t39.686-97.314q39.686-39.5 97.5-39.5t97.314 39.686q39.5 39.686 39.5 97.5T577.314-489.5q-39.686 39.5-97.5 39.5Zm.654 370Q398-80 325-111.5q-73-31.5-127.5-86t-86-127.266Q80-397.532 80-480.266T111.5-635.5q31.5-72.5 86-127t127.266-86q72.766-31.5 155.5-31.5T635.5-848.5q72.5 31.5 127 86t86 127.032q31.5 72.532 31.5 155T848.5-325q-31.5 73-86 127.5t-127.032 86q-72.532 31.5-155 31.5ZM480-140q55 0 107.5-16T691-212q-51-36-104-55t-107-19q-54 0-107 19t-104 55q51 40 103.5 56T480-140Zm0-370q34 0 55.5-21.5T557-587q0-34-21.5-55.5T480-664q-34 0-55.5 21.5T403-587q0 34 21.5 55.5T480-510Zm0-77Zm0 374Z"/>
+                        <path d="m480-121-41-37q-105.768-97.121-174.884-167.561Q195-396 154-451.5T96.5-552Q80-597 80-643q0-90.155 60.5-150.577Q201-854 290-854q57 0 105.5 27t84.5 78q42-54 89-79.5T670-854q89 0 149.5 60.423Q880-733.155 880-643q0 46-16.5 91T806-451.5Q765-396 695.884-325.561 626.768-255.121 521-158l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712-426 750.5-476t54-89.135q15.5-39.136 15.5-77.72Q820-709 778-751.5T670.225-794q-51.524 0-95.375 31.5Q531-731 504-674h-49q-26-56-69.85-88-43.851-32-95.375-32Q224-794 182-751.5t-42 108.816Q140-604 155.5-564.5t54 90Q248-424 314-358t166 158Zm0-297Z"/>
                     </svg>
-                </div>
+                </button>
             </li>
             <li class="menu__item">
-                <a href="../cart/cart.php">
-                    <div class="menu__item-cart" id="cart">
+                <a href="../profile/profile.php">
+                    <button class="menu__item-profile" id="profile" type="button" name="profile">
                         <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48">
-                            <path d="M196-120q-16 0-28.5-9.5T151-154L38-561q-4-15 5.5-27T69-600h200l185-270q5-6 11-9.5t14-3.5q8 0 14 3.5t11 9.5l184 270h205q15 0 24.5 12t5.5 27L809-154q-4 15-16.5 24.5T764-120H196Zm10-60h548l101-360H106l100 360Zm274-120q25 0 42.5-17.5T540-360q0-25-17.5-42.5T480-420q-25 0-42.5 17.5T420-360q0 25 17.5 42.5T480-300ZM342-600h273L479-800 342-600ZM206-180h548-548Z"/>
+                            <path d="M222-255q63-44 125-67.5T480-346q71 0 133.5 23.5T739-255q44-54 62.5-109T820-480q0-145-97.5-242.5T480-820q-145 0-242.5 97.5T140-480q0 61 19 116t63 109Zm257.814-195Q422-450 382.5-489.686q-39.5-39.686-39.5-97.5t39.686-97.314q39.686-39.5 97.5-39.5t97.314 39.686q39.5 39.686 39.5 97.5T577.314-489.5q-39.686 39.5-97.5 39.5Zm.654 370Q398-80 325-111.5q-73-31.5-127.5-86t-86-127.266Q80-397.532 80-480.266T111.5-635.5q31.5-72.5 86-127t127.266-86q72.766-31.5 155.5-31.5T635.5-848.5q72.5 31.5 127 86t86 127.032q31.5 72.532 31.5 155T848.5-325q-31.5 73-86 127.5t-127.032 86q-72.532 31.5-155 31.5ZM480-140q55 0 107.5-16T691-212q-51-36-104-55t-107-19q-54 0-107 19t-104 55q51 40 103.5 56T480-140Zm0-370q34 0 55.5-21.5T557-587q0-34-21.5-55.5T480-664q-34 0-55.5 21.5T403-587q0 34 21.5 55.5T480-510Zm0-77Zm0 374Z"/>
                         </svg>
-                    </div>
+                    </button>
                 </a>
+            </li>
+            <li class="menu__item">
+                <button class="menu__item-cart" id="cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48">
+                        <path d="M196-120q-16 0-28.5-9.5T151-154L38-561q-4-15 5.5-27T69-600h200l185-270q5-6 11-9.5t14-3.5q8 0 14 3.5t11 9.5l184 270h205q15 0 24.5 12t5.5 27L809-154q-4 15-16.5 24.5T764-120H196Zm10-60h548l101-360H106l100 360Zm274-120q25 0 42.5-17.5T540-360q0-25-17.5-42.5T480-420q-25 0-42.5 17.5T420-360q0 25 17.5 42.5T480-300ZM342-600h273L479-800 342-600ZM206-180h548-548Z"/>
+                    </svg>
+                </button>
             </li>
         </ul>
     </div>
@@ -56,82 +64,9 @@
 
 <div class="main container-fluid">
     <div class="row">
+
     </div>
 </div>
-
-<div class="modal" id="modalProfile" style="display: none">
-    <div class="login-wrapper">
-        <span class="title">Авторизация</span>
-
-        <span class="subtitle">Заполните форму и продолжайте покупки</span>
-
-        <form method="POST" action="" id="loginForm">
-            <div class="form__item">
-                <img src="../../assets/images/login/login.svg" alt="">
-                <input type="text" placeholder="Логин" id="loginLogin" name="login" required>
-            </div>
-
-            <div class="form__item">
-                <img src="../../assets/images/login/password.svg" alt="">
-                <input type="password" placeholder="Пароль" id="passwordLogin" name="password" required>
-            </div>
-
-            <div class="login__button-wrapper">
-                <button class="login__button" id="btnLogin" name="enter">Войти</button>
-            </div>
-
-            <div class="create-wrapper">
-                <button class="create__button" id="btnCreateAccount" name="enter">Создать аккаунт</button>
-            </div>
-        </form>
-    </div>
-    <div class="registration-wrapper" style="display: none">
-        <span class="title">Регистрация</span>
-
-        <form method="POST" action="" id="registrationForm">
-            <div class="form__item">
-                <img src="../../assets/images/login/login.svg" alt="">
-                <input type="text" placeholder="Логин" id="loginRegistration" required>
-            </div>
-
-            <div class="form__item">
-                <img src="../../assets/images/login/login.svg" alt="">
-                <input type="text" placeholder="Пароль" id="passwordRegistration" required>
-            </div>
-
-            <div class="form__item">
-                <img src="../../assets/images/login/login.svg" alt="">
-                <input type="text" placeholder="Почта" id="emailRegistration" required>
-            </div>
-
-            <div class="form__item">
-                <img src="../../assets/images/login/password.svg" alt="">
-                <input type="password" placeholder="Фамилия" id="surnameRegistration" required>
-            </div>
-
-            <div class="form__item">
-                <img src="../../assets/images/login/password.svg" alt="">
-                <input type="password" placeholder="Имя" id="nameRegistration" required>
-            </div>
-
-            <div class="form__item">
-                <img src="../../assets/images/login/password.svg" alt="">
-                <input type="password" placeholder="Отчество" id="patronymicRegistration" required>
-            </div>
-
-            <div class="form__item">
-                <img src="../../assets/images/login/password.svg" alt="">
-                <input type="password" placeholder="Номер телефона" id="numberRegistration" required>
-            </div>
-
-            <div class="registration__button-wrapper">
-                <button class="registration__button" type="submit" id="btnRegistration">Регистрация</button>
-            </div>
-        </form>
-    </div>
-    <div class="modal-overlay" id="overlayProfile"></div>
-</div>
-
 
 <div class="modal" id="modalProduct" style="display: none">
     <div class="product-wrapper">
@@ -141,8 +76,6 @@
     </div>
     <div class="modal-overlay" id="overlayProduct"></div>
 </div>
-
-
 
 <div id="goTop">
     <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48">

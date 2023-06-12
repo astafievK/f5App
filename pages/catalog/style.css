@@ -112,23 +112,23 @@ body header .menu-wrapper .menu .menu__item {
   display: flex;
   align-items: center;
 }
-body header .menu-wrapper .menu .menu__item div svg {
+body header .menu-wrapper .menu .menu__item button svg {
   transition: all 0.2s;
 }
-body header .menu-wrapper .menu .menu__item div svg path {
+body header .menu-wrapper .menu .menu__item button svg path {
   fill: #ffffff;
   transition: all 0.2s;
 }
-body header .menu-wrapper .menu .menu__item div svg:hover {
+body header .menu-wrapper .menu .menu__item button svg:hover {
   transform: scale(1.4);
   filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.85));
   transition: all 0.2s;
 }
-body header .menu-wrapper .menu .menu__item div svg:active {
+body header .menu-wrapper .menu .menu__item button svg:active {
   transform: scale(1.2);
   transition: all 0.1s;
 }
-body header .menu-wrapper .menu .menu__item:nth-child(2) div {
+body header .menu-wrapper .menu .menu__item:nth-child(2) button {
   margin-left: 19px;
   margin-right: 19px;
 }
@@ -218,159 +218,6 @@ body .main .row .card-wrapper .card:hover .spoiler {
 body .main .row .card-wrapper .card:active {
   transform: scale(1.015);
   transition: all 0.1s;
-}
-body .modal {
-  backdrop-filter: blur(5px);
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99998;
-  animation-duration: 0.35s;
-  animation-name: appear-modal;
-}
-body .modal .login-wrapper,
-body .modal .registration-wrapper {
-  display: flex;
-  position: relative;
-  max-width: 400px;
-  padding: 40px 50px 40px 50px;
-  background-color: #293644;
-  flex-direction: column;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 15px;
-  z-index: 99999;
-}
-body .modal .login-wrapper .title,
-body .modal .registration-wrapper .title {
-  font-weight: 900;
-  font-size: 35px;
-  text-align: center;
-}
-body .modal .login-wrapper .subtitle,
-body .modal .registration-wrapper .subtitle {
-  margin-top: 17px;
-  font-weight: 300;
-  font-size: 20px;
-  text-align: center;
-}
-body .modal .login-wrapper .title,
-body .modal .login-wrapper .subtitle,
-body .modal .registration-wrapper .title,
-body .modal .registration-wrapper .subtitle {
-  color: #FFFFFF;
-}
-body .modal .login-wrapper form,
-body .modal .registration-wrapper form {
-  position: relative;
-  margin-top: 30px;
-  width: 355px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  left: 50%;
-  transform: translateX(-50%);
-}
-body .modal .login-wrapper form .form__item,
-body .modal .registration-wrapper form .form__item {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  position: relative;
-  border-bottom: 2px solid #FFFFFF;
-  margin-bottom: 32px;
-  width: 100%;
-  transition: all 0.2s ease-out;
-}
-body .modal .login-wrapper form .form__item img,
-body .modal .registration-wrapper form .form__item img {
-  max-width: 35px;
-  margin-right: 10px;
-}
-body .modal .login-wrapper form .form__item input,
-body .modal .registration-wrapper form .form__item input {
-  color: #FFFFFF;
-  font-weight: 300;
-  font-size: 18px;
-  width: 100%;
-}
-body .modal .login-wrapper form .form__item input::placeholder,
-body .modal .registration-wrapper form .form__item input::placeholder {
-  color: rgba(255, 255, 255, 0.25);
-  padding-left: 3px;
-  user-select: none;
-}
-body .modal .login-wrapper form .login__button-wrapper,
-body .modal .login-wrapper form .registration__button-wrapper,
-body .modal .registration-wrapper form .login__button-wrapper,
-body .modal .registration-wrapper form .registration__button-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 19px;
-}
-body .modal .login-wrapper form .login__button-wrapper .login__button,
-body .modal .login-wrapper form .login__button-wrapper .registration__button__button,
-body .modal .login-wrapper form .registration__button-wrapper .login__button,
-body .modal .login-wrapper form .registration__button-wrapper .registration__button__button,
-body .modal .registration-wrapper form .login__button-wrapper .login__button,
-body .modal .registration-wrapper form .login__button-wrapper .registration__button__button,
-body .modal .registration-wrapper form .registration__button-wrapper .login__button,
-body .modal .registration-wrapper form .registration__button-wrapper .registration__button__button {
-  width: 181px;
-  height: 47px;
-  background-color: #4ACCD4;
-  border-radius: 16px 5px 5px 5px;
-  border: 4px solid transparent;
-  font-weight: 700;
-  font-size: 18px;
-  color: #222428;
-  transition: all 0.2s;
-}
-body .modal .login-wrapper form .login__button-wrapper .login__button:hover,
-body .modal .login-wrapper form .login__button-wrapper .registration__button:hover,
-body .modal .login-wrapper form .registration__button-wrapper .login__button:hover,
-body .modal .login-wrapper form .registration__button-wrapper .registration__button:hover,
-body .modal .registration-wrapper form .login__button-wrapper .login__button:hover,
-body .modal .registration-wrapper form .login__button-wrapper .registration__button:hover,
-body .modal .registration-wrapper form .registration__button-wrapper .login__button:hover,
-body .modal .registration-wrapper form .registration__button-wrapper .registration__button:hover {
-  color: #FFFFFF;
-  background-color: transparent;
-  border-color: #4ACCD4;
-  transition: all 0.2s;
-}
-body .modal .login-wrapper form .login__button-wrapper .login__button:active,
-body .modal .login-wrapper form .login__button-wrapper .registration__button:active,
-body .modal .login-wrapper form .registration__button-wrapper .login__button:active,
-body .modal .login-wrapper form .registration__button-wrapper .registration__button:active,
-body .modal .registration-wrapper form .login__button-wrapper .login__button:active,
-body .modal .registration-wrapper form .login__button-wrapper .registration__button:active,
-body .modal .registration-wrapper form .registration__button-wrapper .login__button:active,
-body .modal .registration-wrapper form .registration__button-wrapper .registration__button:active {
-  transform: scale(0.9);
-  transition: all 0.2s;
-}
-body .modal .login-wrapper form .form__item:last-child,
-body .modal .registration-wrapper form .form__item:last-child {
-  margin-bottom: 0;
-}
-body .modal .login-wrapper form .form__item:focus-within,
-body .modal .registration-wrapper form .form__item:focus-within {
-  border-bottom: 2px solid #4ACCD4;
-  transition: all 0.2s ease-out;
-}
-body .modal .modal-overlay {
-  position: fixed;
-  z-index: 99998;
-  background: rgba(0, 0, 0, 0.2);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 @keyframes appear-modal {
   from {

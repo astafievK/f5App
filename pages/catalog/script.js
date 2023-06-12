@@ -1,13 +1,6 @@
 $(document).ready(function() {
     $("#profile").click(function() {
-        $.getJSON('check_auth.php', function(data) {
-            console.log(data.auth)
-            if (data.auth) {
-                window.location.href = 'profile.php';
-            } else {
-                $("#modalProfile").css("display", "block");
-            }
-        });
+        $("#modalProfile").css("display", "block");
     });
 
     $("#overlayProfile").click(function() {

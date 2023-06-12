@@ -1,0 +1,149 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #222428;
+}
+body .login-wrapper {
+  display: flex;
+  width: 470px;
+  padding: 40px 50px 40px 50px;
+  background-color: #293644;
+  flex-direction: column;
+  border-radius: 15px;
+}
+body .login-wrapper .title {
+  font-weight: 900;
+  font-size: 35px;
+  text-align: center;
+}
+body .login-wrapper .subtitle {
+  margin-top: 17px;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+}
+body .login-wrapper .title,
+body .login-wrapper .subtitle {
+  color: #FFFFFF;
+}
+body .login-wrapper form {
+  position: relative;
+  margin-top: 30px;
+  width: 355px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body .login-wrapper form .form__item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  position: relative;
+  border-bottom: 2px solid #FFFFFF;
+  margin-bottom: 32px;
+  width: 100%;
+  transition: all 0.2s ease-out;
+}
+body .login-wrapper form .form__item img {
+  max-width: 35px;
+  margin-right: 10px;
+}
+body .login-wrapper form .form__item input {
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 18px;
+  width: 100%;
+}
+body .login-wrapper form .form__item input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  padding-left: 3px;
+  user-select: none;
+}
+body .login-wrapper form .login__button-wrapper,
+body .login-wrapper form .create__button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 19px;
+}
+body .login-wrapper form .login__button-wrapper .login__button,
+body .login-wrapper form .login__button-wrapper .create__button,
+body .login-wrapper form .create__button-wrapper .login__button,
+body .login-wrapper form .create__button-wrapper .create__button {
+  width: 181px;
+  height: 47px;
+  background-color: #4ACCD4;
+  border-radius: 16px 5px 5px 5px;
+  border: 4px solid transparent;
+  font-weight: 700;
+  font-size: 18px;
+  color: #222428;
+  transition: all 0.2s;
+}
+body .login-wrapper form .login__button-wrapper .login__button:hover,
+body .login-wrapper form .login__button-wrapper .create__button:hover,
+body .login-wrapper form .create__button-wrapper .login__button:hover,
+body .login-wrapper form .create__button-wrapper .create__button:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  border-color: #4ACCD4;
+  transition: all 0.2s;
+}
+body .login-wrapper form .login__button-wrapper .login__button:active,
+body .login-wrapper form .login__button-wrapper .create__button:active,
+body .login-wrapper form .create__button-wrapper .login__button:active,
+body .login-wrapper form .create__button-wrapper .create__button:active {
+  transform: scale(0.9);
+  transition: all 0.2s;
+}
+body .login-wrapper form .form__item:last-child {
+  margin-bottom: 0;
+}
+body .login-wrapper form .form__item:focus-within {
+  border-bottom: 2px solid #4ACCD4;
+  transition: all 0.2s ease-out;
+}
+body .login-wrapper .create__button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 19px;
+}
+body .login-wrapper .create__button-wrapper a .create__button {
+  width: 181px;
+  height: 47px;
+  background-color: #4ACCD4;
+  border-radius: 16px 5px 5px 5px;
+  border: 4px solid transparent;
+  font-weight: 700;
+  font-size: 18px;
+  color: #222428;
+  transition: all 0.2s;
+}
+body .login-wrapper .create__button-wrapper a .create__button:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  border-color: #4ACCD4;
+  transition: all 0.2s;
+}
+body .login-wrapper .create__button-wrapper a .create__button:active {
+  transform: scale(0.9);
+  transition: all 0.2s;
+}
+
+/*# sourceMappingURL=style.css.map */

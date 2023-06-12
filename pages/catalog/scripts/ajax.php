@@ -1,7 +1,7 @@
 <?php
-$dbh = new PDO('mysql:host=localhost;dbname=f5App', 'root', 'root');
+$dbh = new PDO('mysql:host=localhost;dbname=F5App', 'root', 'root');
 
-$sql = "SELECT * FROM products";
+$sql = "SELECT * FROM product";
 
 try{
     $result = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
