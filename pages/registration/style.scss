@@ -18,6 +18,9 @@ body {
   width: 100%;
   background-color: #222428;
 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
   .registration-wrapper{
     display: flex;
     width: 470px;
@@ -156,4 +159,9 @@ body {
       }
     }
   }
+}
+
+
+body::-webkit-scrollbar{
+  display: none;
 }

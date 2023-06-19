@@ -16,6 +16,8 @@ body {
   background-color: #222428;
   padding-top: 50px;
   padding-bottom: 50px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 body header {
   width: 100%;
@@ -123,9 +125,20 @@ body .orders-wrap .product__card-wrap {
   border: 2px solid gray;
   border-radius: 15px;
   padding: 30px 60px 30px 60px;
+  align-items: center;
+}
+body .orders-wrap .product__card-wrap .product__card-date {
+  text-align: center;
+}
+body .orders-wrap .product__card-wrap .product__card-price {
+  text-align: end;
 }
 body .orders-wrap .product__card-wrap span {
   font-size: 27px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

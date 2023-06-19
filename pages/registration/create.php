@@ -10,7 +10,7 @@ if(isset($_POST['create'])){
 
     $pdo = new PDO('mysql:host=localhost;dbname=F5App;charset=utf8mb4', 'root', 'root');
 
-    $stmt = $pdo->prepare('CALL create_user(?, ?, ?, ?, ?, ?, ?)');
+    $stmt = $pdo->prepare('CALL CreateUser(?, ?, ?, ?, ?, ?, ?)');
     $stmt->execute([$login, $password, $name, $surname, $patronymic, $email, $phone]);
 
     header('Location: ../authorization/authorization.php');

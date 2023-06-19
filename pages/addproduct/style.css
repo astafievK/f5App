@@ -1,0 +1,133 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #222428;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body .add__product-wrapper {
+  display: flex;
+  width: 470px;
+  padding: 40px 50px 40px 50px;
+  background-color: #293644;
+  flex-direction: column;
+  border-radius: 15px;
+}
+body .add__product-wrapper .title {
+  font-weight: 900;
+  font-size: 35px;
+  text-align: center;
+}
+body .add__product-wrapper form {
+  margin-top: 60px;
+}
+body .add__product-wrapper form .form__item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  position: relative;
+  border-bottom: 2px solid #FFFFFF;
+  margin-bottom: 32px;
+  width: 100%;
+  transition: all 0.2s ease-out;
+}
+body .add__product-wrapper form .form__item textarea {
+  height: 70px;
+  resize: none;
+}
+body .add__product-wrapper form .form__item input,
+body .add__product-wrapper form .form__item textarea {
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 18px;
+  width: 100%;
+}
+body .add__product-wrapper form .form__item input::placeholder,
+body .add__product-wrapper form .form__item textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  padding-left: 3px;
+  user-select: none;
+}
+body .add__product-wrapper form .add__button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 19px;
+}
+body .add__product-wrapper form .add__button-wrapper .add_button {
+  width: 181px;
+  height: 47px;
+  background-color: #4ACCD4;
+  border-radius: 16px 5px 5px 5px;
+  border: 4px solid transparent;
+  font-weight: 700;
+  font-size: 18px;
+  color: #222428;
+  transition: all 0.2s;
+}
+body .add__product-wrapper form .add__button-wrapper .add_button:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  border-color: #4ACCD4;
+  transition: all 0.2s;
+}
+body .add__product-wrapper form .add__button-wrapper .add_button:active {
+  transform: scale(0.9);
+  transition: all 0.2s;
+}
+body .add__product-wrapper form .form__item:last-child {
+  margin-bottom: 0;
+}
+body .add__product-wrapper form .form__item:focus-within {
+  border-bottom: 2px solid #4ACCD4;
+  transition: all 0.2s ease-out;
+}
+body .add__product-wrapper a {
+  text-decoration: none;
+}
+body .add__product-wrapper a .cancel__button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 19px;
+}
+body .add__product-wrapper a .cancel__button-wrapper .cancel_button {
+  width: 181px;
+  height: 47px;
+  background-color: #4ACCD4;
+  border-radius: 16px 5px 5px 5px;
+  border: 4px solid transparent;
+  font-weight: 700;
+  font-size: 18px;
+  color: #222428;
+  transition: all 0.2s;
+}
+body .add__product-wrapper a .cancel__button-wrapper .cancel_button:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  border-color: #4ACCD4;
+  transition: all 0.2s;
+}
+body .add__product-wrapper a .cancel__button-wrapper .cancel_button:active {
+  transform: scale(0.9);
+  transition: all 0.2s;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */

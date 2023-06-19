@@ -17,6 +17,8 @@ body {
   min-height: 100vh;
   width: 100%;
   background-color: #222428;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 body .login-wrapper {
   display: flex;
@@ -144,6 +146,10 @@ body .login-wrapper .create__button-wrapper a .create__button:hover {
 body .login-wrapper .create__button-wrapper a .create__button:active {
   transform: scale(0.9);
   transition: all 0.2s;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

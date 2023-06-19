@@ -13,6 +13,8 @@ body {
   min-height: 100vh;
   width: 100%;
   background-color: #222428;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 body header {
   z-index: 2;
@@ -52,7 +54,6 @@ body header .logo-wrapper .logo svg path {
   transition: all 0.2s;
 }
 body header .logo:hover {
-  transform: scale(1.175);
   transition: all 0.2s;
 }
 body header .logo:hover svg {
@@ -60,11 +61,11 @@ body header .logo:hover svg {
   transition: all 0.2s;
 }
 body header .logo:active {
-  transform: scale(1.07);
+  transform: scale(0.95);
   transition: all 0.1s;
 }
 body header .search-wrapper {
-  width: 90%;
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,25 +113,46 @@ body header .menu-wrapper .menu .menu__item {
   display: flex;
   align-items: center;
 }
-body header .menu-wrapper .menu .menu__item button svg {
+body header .menu-wrapper .menu .menu__item a {
+  text-decoration: none;
+}
+body header .menu-wrapper .menu .menu__item a button {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 15px;
   transition: all 0.2s;
 }
-body header .menu-wrapper .menu .menu__item button svg path {
+body header .menu-wrapper .menu .menu__item a button span {
+  margin-left: 7px;
+  color: #FFFFFF;
+  font-size: 25px;
+}
+body header .menu-wrapper .menu .menu__item a button svg {
+  transition: all 0.2s;
+}
+body header .menu-wrapper .menu .menu__item a button svg path {
   fill: #ffffff;
   transition: all 0.2s;
 }
-body header .menu-wrapper .menu .menu__item button svg:hover {
-  transform: scale(1.4);
-  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.85));
+body header .menu-wrapper .menu .menu__item a button:hover {
+  background: rgba(128, 128, 128, 0.5);
   transition: all 0.2s;
 }
-body header .menu-wrapper .menu .menu__item button svg:active {
-  transform: scale(1.2);
-  transition: all 0.1s;
+body header .menu-wrapper .menu .menu__item a button:active {
+  transform: scale(0.95);
+  transition: all 0.2s;
 }
-body header .menu-wrapper .menu .menu__item:nth-child(2) button {
-  margin-left: 19px;
-  margin-right: 19px;
+body header .menu-wrapper .menu .menu__item a .menu__item-leave svg path {
+  fill: #FFFFFF;
+  transition: all 0.2s;
+}
+body header .menu-wrapper .menu .menu__item a .menu__item-leave:hover svg path {
+  fill: red;
+  transition: all 0.2s;
+}
+body header .menu-wrapper .menu .menu__item:not(:last-child) button {
+  margin-right: 30px;
 }
 body .main {
   padding: 150px 12% 0 12% !important;
@@ -170,25 +192,63 @@ body .main .row .card-wrapper .card .spoiler .spoiler-content {
   height: 100%;
   color: #FFFFFF;
   padding: 30px 20px 30px 20px;
-  user-select: none;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content .articul {
+  color: gray;
+  position: absolute;
+  width: 30%;
+  font-size: 15px;
+  font-weight: 700;
 }
 body .main .row .card-wrapper .card .spoiler .spoiler-content .price {
+  color: #FFFFFF;
   position: absolute;
+  text-align: end;
+  width: 70%;
   right: 10%;
   font-size: 40px;
   font-weight: 700;
 }
 body .main .row .card-wrapper .card .spoiler .spoiler-content .title {
+  width: 90%;
+  color: #FFFFFF;
   position: absolute;
-  bottom: 30%;
+  bottom: 43%;
   font-size: 30px;
   font-weight: 600;
 }
 body .main .row .card-wrapper .card .spoiler .spoiler-content .description {
+  width: 90%;
+  color: #FFFFFF;
   position: absolute;
   font-size: 16px;
   font-weight: 500;
-  bottom: 10%;
+  bottom: 30%;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content .buy {
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  bottom: 5%;
+  width: 90%;
+  height: 60px;
+  background-color: #4ACCD4;
+  border-radius: 15px;
+  border: 4px solid transparent;
+  font-weight: 700;
+  font-size: 25px;
+  color: #222428;
+  transition: all 0.2s;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content .buy:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  border-color: #4ACCD4;
+  transition: all 0.2s;
+}
+body .main .row .card-wrapper .card .spoiler .spoiler-content .buy:active {
+  transform: scale(0.9);
+  transition: all 0.2s;
 }
 @keyframes slide-up {
   from {
@@ -214,10 +274,6 @@ body .main .row .card-wrapper .card:hover {
 body .main .row .card-wrapper .card:hover .spoiler {
   animation-name: slide-up;
   animation-fill-mode: forwards;
-}
-body .main .row .card-wrapper .card:active {
-  transform: scale(1.015);
-  transition: all 0.1s;
 }
 @keyframes appear-modal {
   from {
@@ -283,10 +339,15 @@ body footer .logo {
   letter-spacing: 0.2em;
   align-items: center;
   user-select: none;
-  transition: all 0.3s;
+  transition: all 0.2s;
+}
+body footer .logo .logo__title {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.2s;
 }
 body footer .logo .logo__icon,
-body footer .logo .logo__label {
+body footer .logo .logo__title {
   display: inline-block;
 }
 body footer .logo .logo__icon {
@@ -295,15 +356,19 @@ body footer .logo .logo__icon {
 }
 body footer .logo .logo__icon path {
   fill: #ffffff;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
-body footer .logo:hover {
-  transition: all 0.3s;
+body footer .logo:hover .logo__title {
+  transition: all 0.2s;
   color: #4ec6d5;
 }
 body footer .logo:hover .logo__icon path {
   fill: #4ACCD4;
-  transition: all 0.3s;
+  transition: all 0.2s;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

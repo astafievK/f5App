@@ -6,27 +6,37 @@ if(isset($_POST['enter'])) {
     $password = $_POST['password'];
     $pdo = new PDO('mysql:host=localhost;dbname=F5App;charset=utf8mb4', 'root', 'root');
 
-    $sql = "SELECT CheckUser(?, ?) AS result";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$login, $password]);
+    if($pdo){
+        $sql = "SELECT CheckUser(?, ?) AS result";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$login, $password]);
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC)['result'];
+        $result = $stmt->fetch(PDO::FETCH_ASSOC)['result'];
 
-    if($result == 1) {
-        $_SESSION['id'] = getLogin($login);
-        header('Location: ../catalog/catalog.php');
-        exit();
-    } else {
-        header('Location: ../registration/registration.php');
-        exit();
+        if($result) {
+            $userInfo = getUserInfo($login);
+            $_SESSION['id'] = $userInfo[0];
+            $_SESSION['name'] = $userInfo[1];
+            $_SESSION['surname'] = $userInfo[2];
+            $_SESSION['roleId'] = $userInfo[3];
+            $_SESSION['roleString'] = $userInfo[4];
+            header('Location: ../catalog/catalog.php');
+            exit();
+        }
     }
+    header('Location: ../registration/registration.php');
+    exit();
 }
 
-function getLogin($login){
+function getUserInfo($login){
     $connection = mysqli_connect('localhost', 'root', 'root', 'F5App');
-    $query = "SELECT getUserIdByLogin('$login') AS idUser";
-    echo $query;
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_assoc($result);
-    return $row['idUser'];
+    $query = "SELECT user.idUser, user.name, user.surname, role.idRole, role.title FROM user 
+              INNER JOIN role ON user.idRole = role.idRole WHERE user.login = ?";
+    $stmt = $connection->prepare($query);
+    $stmt->bind_param('s', $login);
+    $stmt->execute();
+    $stmt->bind_result($idUser, $name, $surname, $idRole, $title);
+    $stmt->fetch();
+    $stmt->close();
+    return array($idUser, $name, $surname, $idRole, $title);
 }
