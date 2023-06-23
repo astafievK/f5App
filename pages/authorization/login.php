@@ -14,7 +14,7 @@ if(isset($_POST['enter'])) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC)['result'];
 
         if($result) {
-            $userInfo = getUserInfo($login);
+            $userInfo = getUserInfo($pdo, $login);
             $_SESSION['id'] = $userInfo[0];
             $_SESSION['name'] = $userInfo[1];
             $_SESSION['surname'] = $userInfo[2];
@@ -28,15 +28,13 @@ if(isset($_POST['enter'])) {
     exit();
 }
 
-function getUserInfo($login){
-    $connection = mysqli_connect('localhost', 'root', 'root', 'F5App');
-    $query = "SELECT user.idUser, user.name, user.surname, role.idRole, role.title FROM user 
-              INNER JOIN role ON user.idRole = role.idRole WHERE user.login = ?";
-    $stmt = $connection->prepare($query);
-    $stmt->bind_param('s', $login);
-    $stmt->execute();
-    $stmt->bind_result($idUser, $name, $surname, $idRole, $title);
-    $stmt->fetch();
-    $stmt->close();
-    return array($idUser, $name, $surname, $idRole, $title);
+function getUserInfo($pdo, $login) {
+    $query = "SELECT user.idUser, user.name, user.surname, role.idRole, role.title FROM user
+INNER JOIN role ON user.idRole = role.idRole WHERE user.login = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$login]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+
+    return array($result['idUser'], $result['name'], $result['surname'], $result['idRole'], $result['title']);
 }

@@ -1,14 +1,4 @@
 $(document).ready(function() {
-    $("#profile").click(function() {
-        $("#modalProfile").css("display", "block");
-    });
-
-    $("#overlayProfile").click(function() {
-        $("#modalProfile").css("display", "none");
-    });
-
-
-
     $('#search').on('input', function() {
         const searchQuery = $(this).val().toLowerCase();
 
@@ -25,7 +15,6 @@ $(document).ready(function() {
     });
 
 
-
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
             $('#goTop').fadeIn();
@@ -33,6 +22,7 @@ $(document).ready(function() {
             $('#goTop').fadeOut();
         }
     });
+
     $('#goTop').click(function(){
         $('body,html').animate({scrollTop : 0}, 500);
     });

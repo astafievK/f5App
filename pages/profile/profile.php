@@ -30,11 +30,13 @@ function printOrders($resultOrders){
     ';
     }
 }
+
 function printOrdersCount($resultOrdersCount){
     while ($row = mysqli_fetch_array($resultOrdersCount)) {
         echo $row['ordersCount'];
     }
 }
+
 function printUserInfo($resultUserInfo){
     while ($row = mysqli_fetch_array($resultUserInfo)) {
         echo
@@ -99,6 +101,5 @@ if (isset($_POST['leave'])) {
         </div>
     </div>
 </div>
-<script src="scripts/script.js"></script>
 </body>
 </html>
